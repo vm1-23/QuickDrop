@@ -5,10 +5,10 @@ import logo from '../public/logo.png'
 
 const Navbar = () => {
   return (
-    <header className='py-4 shadow-sm bg-white'>
+    <header className='py-4 shadow-sm bg-transparent'>
       <nav className='px-20 flex space-between'>
         <Link href="./">
-          <Image src = "/logo1.png" alt="Logo" width={350} height={110}/>
+          <Image src = "/logo1-removebg-preview.png" alt="Logo" width={350} height={110}/>
         </Link>
       </nav>
     </header>

@@ -1,6 +1,7 @@
+//copy pasted from vercel blob docs with modified allowedContentTypes and maximumSizeInBytes
+
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { NextResponse } from 'next/server';
-import {put} from "@vercel/blob"
  
 export async function POST(request: Request): Promise<NextResponse> {
   const body = (await request.json()) as HandleUploadBody;
@@ -21,8 +22,9 @@ export async function POST(request: Request): Promise<NextResponse> {
         // Otherwise, you're allowing anonymous uploads.
  
         return {
-          allowedContentTypes: ['image/jpeg', 'image/png', 'image/webp'],
+          allowedContentTypes: ['image/*', 'video/*', 'audio/*', 'application/pdf', 'text/*', 'application/*'],
           addRandomSuffix: true,
+          maximumSizeInBytes: 2000 * 1024 * 1024,
           // callbackUrl: 'https://example.com/api/avatar/upload',
           // optional, `callbackUrl` is automatically computed when hosted on Vercel
           tokenPayload: JSON.stringify({
@@ -55,3 +57,4 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 }
+
