@@ -30,6 +30,31 @@ export async function POST(
       );
     }
 
+    if (file.one_time_download) {
+      try {        
+        await supabase
+          .from('files')
+          .delete()
+          .eq('id', resolvedParams.id);
+
+
+        await del(file.blob_url);
+        
+        console.log(`Deleted one-time download: ${file.filename}`);
+
+        return NextResponse.json({ 
+          success: true,
+          message: 'One-time download completed and deleted',
+          oneTimeDownload: true
+        });
+      } catch (error) {
+        console.error('Failed to delete one-time file:', error);
+        return NextResponse.json(
+          { error: 'Failed to delete file after download' },
+          { status: 500 }
+        );
+      }
+    }
 
     return NextResponse.json({ 
       success: true,
