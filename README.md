@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 QuickDrop  
+*A fast, simple, and secure file-sharing web app — built for instant uploads, temporary links, and automatic expiration.*
 
-## Getting Started
+---
 
-First, run the development server:
+## 📖 Overview  
+**QuickDrop** is a full-stack web application that enables users to quickly upload and share files via temporary links — no login or registration required.  
+Files are securely stored using **Vercel Blob Storage**, while metadata such as expiration, file details, and download counts are managed using **Supabase**.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The application automatically deletes expired files and supports additional features like real-time upload progress and one-time downloads.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🧱 Core Features  
+- **File Upload:**  
+  - Drag-and-drop or button-based upload interface.  
+  - No authentication required.  
 
-## Learn More
+- **Link Generation:**  
+  - Generates unique, non-guessable download links.  
+  - Displays the link for easy sharing.  
 
-To learn more about Next.js, take a look at the following resources:
+- **Expiration:**  
+  - Users can select file expiry durations ( 1 hour, 12 hours, 24 hours, 1 week).  
+  - Files are automatically deleted after expiration.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Download Page:**  
+  - Simple, minimal download interface accessible via the generated link.  
+  - Displays file name, size, and remaining validity time.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+### 💎 Bonus Features Implemented  
+- **Real-Time Upload Progress:**  
+  Displays a smooth progress bar indicating upload completion percentage.  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **One-Time Download:**  
+  File links expire immediately after the first successful download if option is selected prior to link generation.  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🧠 Tech Stack  
+
+| Layer | Technology |
+|-------|-------------|
+| **Frontend** | Next.js (React + Tailwind CSS) |
+| **Backend** | Next.js API Routes |
+| **File Storage** | [Vercel Blob](https://vercel.com/docs/storage/vercel-blob) |
+| **Database** | [Supabase](https://supabase.com/) |
+| **Deployment** | Vercel |
+
+---
+
+## ⚙️ How It Works  
+
+1. **Upload:**  
+   - The user uploads a file via the web interface.  
+   - The file is stored in **Vercel Blob**, and metadata (URL, expiry time, one-time flag, etc.) is saved in **Supabase**.  
+
+2. **Generate Link:**  
+   - A unique download link is generated.  
+   - The link is shown to the user for sharing.  
+
+3. **Expiration:**  
+   - The backend periodically checks for expired files and removes them from storage.  
+
+4. **Download:**  
+   - The download route validates the file’s expiration and download status.  
+   - For one-time downloads, the file is deleted immediately after it’s accessed once.  
+
+5. **Progress Bar:**  
+   - Real-time progress updates during upload using client-side event tracking.  
+
+---
+
+
