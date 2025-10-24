@@ -53,9 +53,17 @@
 
 }
 
-body {
-background: #ffe3e3;
-background: linear-gradient(155deg, rgba(255, 227, 227, 1) 0%, rgba(255, 214, 214, 1) 16%, rgba(246, 255, 237, 1) 34%, rgba(206, 217, 242, 1) 60%, rgba(255, 244, 217, 1) 82%, rgba(255, 201, 201, 1) 100%);
+/* body {
+background: #ffd8b5;
+background: linear-gradient(90deg, rgba(255, 216, 181, 1) 0%, rgba(255, 173, 173, 1) 23%, rgba(255, 218, 97, 1) 63%, rgba(215, 255, 158, 1) 96%);
   min-height: 100vh;
   background-attachment: fixed; 
-}
+} */
+
+  body {
+      background-image: url('/background.jpg'); /* Adjust path as needed */
+      background-size: cover; /* Makes the image cover the entire element */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat; /* Prevents image from repeating */
+      background-attachment: fixed; /* Keeps the background fixed when scrolling */
+  }
