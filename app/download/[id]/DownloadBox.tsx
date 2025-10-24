@@ -37,7 +37,6 @@ const handleDownload = async () => {
     a.click();
     document.body.removeChild(a);
 
-    // ✅ Always resolves to root domain
     await fetch(`${window.location.origin}/api/files/download/${fileId}`, {
       method: 'POST',
     });
@@ -162,4 +161,4 @@ return (
       </div>
     </section>
   </>
-);
+)}

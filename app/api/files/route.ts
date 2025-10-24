@@ -10,6 +10,7 @@ const supabase = createClient(
 export async function POST(request: Request) {
   try {
     const { blobUrl, filename, fileSize, expirationHours, oneTimeDownload } = await request.json();
+    console.log(expirationHours)
     
     if (!blobUrl || !filename || !expirationHours) {
       return NextResponse.json(
