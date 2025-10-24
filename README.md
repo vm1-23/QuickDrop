@@ -19,7 +19,7 @@ The application automatically deletes expired files and supports additional feat
   - No authentication required.  
 
 - **Link Generation:**  
-  - Generates unique, non-guessable download links.  
+  - Generates unique, non-guessable file id using nanoid.  
   - Displays the link for easy sharing.  
 
 - **Expiration:**  
