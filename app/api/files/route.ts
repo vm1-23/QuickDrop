@@ -10,7 +10,6 @@ const supabase = createClient(
 export async function POST(request: Request) {
   try {
     const { blobUrl, filename, fileSize, expirationHours, oneTimeDownload } = await request.json();
-    console.log(expirationHours)
     
     if (!blobUrl || !filename || !expirationHours) {
       return NextResponse.json(
@@ -24,7 +23,7 @@ export async function POST(request: Request) {
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + Number(expirationHours));
     
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('files') 
       .insert({
         id: fileId,

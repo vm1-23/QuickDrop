@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { upload } from "@vercel/blob/client";
 import { PutBlobResult } from "@vercel/blob";
-import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -77,7 +76,7 @@ return (
           className="opacity-80"
         />
         <h1 className="py-3 text-4xl font-bold text-red-400 text-center tracking-wide drop-shadow-[0_0_8px_rgba(255,0,0,0.4)]">
-          DROP IT LIKE IT'S HOT
+          {`DROP IT LIKE IT'S HOT`}
         </h1>
 
         <div className="w-full flex flex-col justify-around items-center">

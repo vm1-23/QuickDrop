@@ -14,7 +14,6 @@ export async function POST(request: Request): Promise<NextResponse> {
       request,
       
       onBeforeGenerateToken: async (
-        pathname,
         /* clientPayload */
       ) => {
         // Generate a client token for the browser to upload the file
@@ -38,14 +37,6 @@ export async function POST(request: Request): Promise<NextResponse> {
         // Use tools like ngrok if you want this to work locally
  
         console.log('blob upload completed', blob, tokenPayload);
- 
-        try {
-          // Run any logic after the file upload completed
-          // const { userId } = JSON.parse(tokenPayload);
-          // await db.update({ avatar: blob.url, userId });
-        } catch (error) {
-          throw new Error('Could not update user');
-        }
       },
     });
  
