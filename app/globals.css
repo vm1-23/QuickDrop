@@ -61,9 +61,9 @@ background: linear-gradient(90deg, rgba(255, 216, 181, 1) 0%, rgba(255, 173, 173
 } */
 
   body {
-      background-image: url('/background.jpg'); /* Adjust path as needed */
-      background-size: cover; /* Makes the image cover the entire element */
-      background-position: center; /* Centers the image */
-      background-repeat: no-repeat; /* Prevents image from repeating */
-      background-attachment: fixed; /* Keeps the background fixed when scrolling */
+      background-image: url('/background2.png'); 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+      background-attachment: fixed;
   }
